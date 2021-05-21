@@ -85,7 +85,7 @@ function setList(e="all") {
         }
     }
     for (let i = 0; i < range.length; i++) {
-        str += ' <div class="card"><div class="card-img" style="background: no-repeat url(' + range[i].Picture1 + ') center/cover;"><h4>' + range[i].Name + '</h4><p>' + range[i].Zone + '</p></div><li class="card-content"><ul class="card-detail"><li><img src="../assets/icons_clock.png"><span>' + range[i].Opentime + '</span></li><li><img src="../assets/icons_pin.png"><span>' + range[i].Add + '</span></li><li><img src="../assets/icons_phone.png"><span>' + range[i].Tel + '</span></li></ul><ul class="card-logo"><li><img src="../assets/icons_tag.png"><span>' + range[i].Ticketinfo + '</span></li></ul></li></div>'
+        str += ' <div class="card"><div class="card-img" style="background: no-repeat url(' + range[i].Picture1 + ') center/cover;"><h4>' + range[i].Name + '</h4><p>' + range[i].Zone + '</p></div><li class="card-content"><ul class="card-detail"><li><img src="assets/icons_clock.png"><span>' + range[i].Opentime + '</span></li><li><img src="assets/icons_pin.png"><span>' + range[i].Add + '</span></li><li><img src="assets/icons_phone.png"><span>' + range[i].Tel + '</span></li></ul><ul class="card-logo"><li><img src="assets/icons_tag.png"><span>' + range[i].Ticketinfo + '</span></li></ul></li></div>'
     }
     list.innerHTML = str;
 }
