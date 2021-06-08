@@ -1,21 +1,21 @@
-var data;
-var requestUrl = "https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json";
-var request = new XMLHttpRequest();
+let data;
+let requestUrl = "https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json";
+let request = new XMLHttpRequest();
 //取得資料
-var lgChoose = document.querySelector('.cs-choose');
-var hotArea = document.querySelector('.hotarea');
-var list = document.querySelector('.ct-list');
-var listTitle = document.querySelector('.ct-title');
-var backTop = document.querySelector('.backTop');
-var pageBtn = document.querySelector('.pagebtn');
-var page;
+let lgChoose = document.querySelector('.cs-choose');
+let hotArea = document.querySelector('.hotarea');
+let list = document.querySelector('.ct-list');
+let listTitle = document.querySelector('.ct-title');
+let backTop = document.querySelector('.backTop');
+let pageBtn = document.querySelector('.pagebtn');
+let page;
 //最開始呈現的頁面
-var areaListdata;
+let areaListdata;
 //設定一頁抓幾筆資料
-var chooselistData;
+let chooselistData;
 //對應高雄市區域的資料Data
-var range = [];
-var newrangeforButton = [];
+let range = [];
+let newrangeforButton = [];
 lgChoose.addEventListener('click', choosearea);
 //行政區選擇
 hotArea.addEventListener('click', choosehot);
@@ -105,21 +105,22 @@ function setList(e = "all") {
     }
     for (let i = 0; i < range.length; i++) {
         if (i <= 5) {
-            str += '<div class="card">\
-                        <div class="card-img" style="background: no-repeat url(' + range[i].Picture1 + ') center/cover;">\
-                            <h4>' + range[i].Name + '</h4><p>' + range[i].Zone + '</p>\
-                    </div>\
-                    <li class="card-content">\
-                    <ul class="card-detail">\
-                        <li><img src="assets/icons_clock.png"><span>' + range[i].Opentime + '</span></li>\
-                        <li><img src="assets/icons_pin.png"><span>' + range[i].Add + '</span></li>\
-                        <li><img src="assets/icons_phone.png"><span>' + range[i].Tel + '</span></li>\
-                    </ul>\
-                        <ul class="card-logo">\
-                            <li><img src="assets/icons_tag.png"><span>' + range[i].Ticketinfo + '</span></li>\
-                        </ul>\
-                    </li>\
-                    </div>';                   
+            str+= `
+            <div class="card">
+                <div class="card-img" style="background: no-repeat url(${range[i].Picture1}) center/cover;">
+                    <h4>${range[i].Name}</h4><p> ${range[i].Zone} </p>
+                </div>
+                    <li class="card-content">
+                        <ul class="card-detail">
+                            <li><img src="assets/icons_clock.png"><span>${range[i].Opentime}</span></li>
+                            <li><img src="assets/icons_pin.png"><span>${range[i].Add}</span></li>
+                            <li><img src="assets/icons_phone.png"><span>${range[i].Tel}</span></li>
+                        </ul>
+                        <ul class="card-logo">
+                            <li><img src="assets/icons_tag.png"><span>${range[i].Ticketinfo}</span></li>
+                        </ul>
+                    </li>
+            </div> `;
         }
     }
     list.innerHTML = str;
@@ -172,7 +173,7 @@ function setTempList(e) {
         }
 }
 console.log(areaListdata);
-var active = document.querySelector('.active');
+let active = document.querySelector('.active');
 if (active !== null) {
     active.classList.remove('active');
 }
@@ -214,39 +215,25 @@ function clicksetList(e = "all") {
     console.log(range.length);
     for (let i = 0; i < range.length; i++) {
         if (i <= 5) {
-        str += '<div class="card">\
-                    <div class="card-img" style="background: no-repeat url(' + range[i].Picture1 + ') center/cover;">\
-                        <h4>' + range[i].Name + '</h4><p>' + range[i].Zone + '</p>\
-                    </div>\
-                    <li class="card-content">\
-                        <ul class="card-detail">\
-                            <li><img src="assets/icons_clock.png"><span>' + range[i].Opentime + '</span></li>\
-                            <li><img src="assets/icons_pin.png"><span>' + range[i].Add + '</span></li>\
-                            <li><img src="assets/icons_phone.png"><span>' + range[i].Tel + '</span></li>\
-                        </ul>\
-                        <ul class="card-logo">\
-                            <li><img src="assets/icons_tag.png"><span>' + range[i].Ticketinfo + '</span></li>\
-                        </ul>\
-                     </li>\
-                </div>';                  
+            str+= `
+            <div class="card">
+                <div class="card-img" style="background: no-repeat url(${range[i].Picture1}) center/cover;">
+                    <h4>${range[i].Name}</h4><p> ${range[i].Zone} </p>
+                </div>
+                    <li class="card-content">
+                        <ul class="card-detail">
+                            <li><img src="assets/icons_clock.png"><span>${range[i].Opentime}</span></li>
+                            <li><img src="assets/icons_pin.png"><span>${range[i].Add}</span></li>
+                            <li><img src="assets/icons_phone.png"><span>${range[i].Tel}</span></li>
+                        </ul>
+                        <ul class="card-logo">
+                            <li><img src="assets/icons_tag.png"><span>${range[i].Ticketinfo}</span></li>
+                        </ul>
+                    </li>
+            </div> `;  
         }
     }
     list.innerHTML = str;
 }
     //問助教為什麼樣版字串無法抓到資料
-    // str+= '
-    //     <div class="card">
-    //         <div class="card-img" style="background: no-repeat url(${range[i].Picture1}) center/cover;">
-    //             <h4>${range[i].Name}</h4><p> ${range[i].Zone} </p>
-    //         </div>
-    //             <li class="card-content">
-    //                 <ul class="card-detail">
-    //                     <li><img src="assets/icons_clock.png"><span>${range[i].Opentime}</span></li>
-    //                     <li><img src="assets/icons_pin.png"><span>${range[i].Add}</span></li>
-    //                     <li><img src="assets/icons_phone.png"><span>${range[i].Tel}</span></li>
-    //                 </ul>
-    //                 <ul class="card-logo">
-    //                     <li><img src="assets/icons_tag.png"><span>${range[i].Ticketinfo}</span></li>
-    //                 </ul>
-    //             </li>
-    //     </div>';
+    
